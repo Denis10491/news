@@ -22,4 +22,6 @@
             </div>
         @endforeach
     </div>
+
+    {{ $posts->links('vendor.pagination') }}
 @endsection

@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $posts = Post::query()->limit(6)->get();
+        $posts = Post::query()->paginate(3);
         return view('home', ['posts' => $posts]);
     }
 }
