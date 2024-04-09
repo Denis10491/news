@@ -20,7 +20,9 @@ class RegisterController extends Controller
     public function signup(SignupRequest $request): RedirectResponse
     {
         $user = User::query()->create($request->validated());
+        
         Mail::to($user)->queue(new WelcomeEmail($user));
+
         return redirect()->route('home');
     }
 }

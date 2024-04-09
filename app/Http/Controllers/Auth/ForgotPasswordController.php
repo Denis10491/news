@@ -37,6 +37,6 @@ class ForgotPasswordController extends Controller
         $user->update(['password' => $password]);
         Mail::to($user)->queue(new GeneratePasswordEmail($user, $password));
 
-        return redirect()->route('auth.login.index');
+        return redirect()->route('login');
     }
 }
