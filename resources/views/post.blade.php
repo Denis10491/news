@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Новости')
+
 @section('content')
     <div>
         <div class="m-auto px-4 py-8 max-w-xl">
