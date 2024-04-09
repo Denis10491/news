@@ -6,7 +6,7 @@
             <div class="px-4 py-8 max-w-xl">
                 <div class="bg-white shadow-2xl">
                     <div>
-                        <a href="#">
+                        <a href="{{ route('posts.show', ['post' => $post]) }}">
                             <img src="{{ $post->thumbnail }}" alt="Post 1"/>
                         </a>
                     </div>

@@ -4,10 +4,17 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+Route::post('/comments/{post}',
+    [CommentController::class, 'store'])->middleware('auth:sanctum')->name('api.comments.store');
 
 Route::controller(RegisterController::class)->group(function () {
     Route::get('register', 'index')->name('auth.register.index');

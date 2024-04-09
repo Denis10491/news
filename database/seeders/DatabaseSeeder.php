@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        Post::factory(50)->create();
+        User::factory(5)
+            ->has(Post::factory(5))
+            ->create();
+
+        User::factory(5)
+            ->has(Comment::factory(5))
+            ->create();
     }
 }
