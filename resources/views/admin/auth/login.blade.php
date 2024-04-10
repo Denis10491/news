@@ -5,7 +5,7 @@
         <div class="bg-white w-96 shadow-xl rounded p-5">
             <h1 class="text-3xl font-medium">Вход</h1>
 
-            <form method="POST" action="{{ route('api.admin.auth.login')  }}" class="space-y-5 mt-5">
+            <form method="POST" action="{{ route('admin.api.auth.login')  }}" class="space-y-5 mt-5">
                 @csrf
 
                 <label for="email">
