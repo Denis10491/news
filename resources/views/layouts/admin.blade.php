@@ -43,7 +43,7 @@
                     <span class="mx-3">Пользователи</span>
                 </a>
 
-                <a href="#"
+                <a href="{{ route('admin.posts.index') }}"
                    class="text-gray-100 flex items-center mt-4 py-2 px-6">
 
                     <span class="mx-3">Статьи</span>
@@ -79,7 +79,7 @@
                         <div x-show="dropdownOpen"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
                              style="display: none;">
-                            <a href="#"
+                            <a href="{{ route('api.auth.logout') }}"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Выйти</a>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
             </header>
 
             @yield('content')
-            
+
         </div>
     </div>
 </div>

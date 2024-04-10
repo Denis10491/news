@@ -6,7 +6,7 @@
             <h3 class="text-gray-700 text-3xl font-medium">Статьи</h3>
 
             <div class="mt-8">
-                <a href="" class="text-indigo-600 hover:text-indigo-900">Добавить</a>
+                <a href="{{ route('admin.posts.store') }}" class="text-indigo-600 hover:text-indigo-900">Добавить</a>
             </div>
 
             <div class="flex flex-col mt-8">
@@ -33,10 +33,13 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                        <a href="#"
+                                        <a href="{{ route('admin.posts.update', ['post' => $post]) }}"
                                            class="text-indigo-600 hover:text-indigo-900">Редактировать</a>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('admin.api.posts.destroy', ['post' => $post]) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
                                             <button type="submit" class="text-red-600 hover:text-red-900">
                                                 Удалить
                                             </button>
