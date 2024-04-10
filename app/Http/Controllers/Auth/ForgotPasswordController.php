@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\ForgotPasswordRequest;
-use App\Mail\GeneratedPasswordEmail;
 use App\Mail\GeneratePasswordEmail;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -22,18 +21,10 @@ class ForgotPasswordController extends Controller
     public function forgot(ForgotPasswordRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
-        $user = User::query()->where('email', '=', $credentials['email'])->first();
 
-        if (!$user) {
-            return redirect()->back()
-                ->withErrors([
-                    'email' => __('validation.email.exists')
-                ])
-                ->withInput();
-        }
+        $user = User::query()->where('email', '=', $credentials['email'])->firstOrFail();
 
         $password = Str::password();
-
         $user->update(['password' => $password]);
         Mail::to($user)->queue(new GeneratePasswordEmail($user, $password));
 
