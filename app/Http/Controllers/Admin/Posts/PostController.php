@@ -48,15 +48,13 @@ class PostController extends Controller
 
     public function update(Post $post, UpdatePostRequest $request): RedirectResponse
     {
-        $request->validated();
-
-        $path = $request->str('thumbnail');
+        $path = null;
         if ($request->hasFile('thumbnail')) {
             $path = Storage::url($request->file('thumbnail')->storePublicly('images/posts', 'public'));
         }
 
         $post->update([
-            'thumbnail' => $path,
+            'thumbnail' => $path ?? $post->thumbnail,
             ...$request->except(['thumbnail']),
         ]);
 

@@ -1,4 +1,4 @@
-<div class="pagination flex justify-between">
+<div class="pagination flex justify-between mx-3">
     @if ($paginator->onFirstPage())
         <span class="disabled px-6 text-center bg-gray-500 rounded-md text-white py-3 font-medium">Назад</span>
     @else
