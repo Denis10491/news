@@ -27,12 +27,10 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin'
         ]);
 
-        User::factory(5)
-            ->has(Post::factory(5))
-            ->create();
+        Post::factory(25)->create();
 
-        User::factory(5)
-            ->has(Comment::factory(5))
+        Comment::factory(50)
+            ->for(User::factory())
             ->create();
     }
 }
