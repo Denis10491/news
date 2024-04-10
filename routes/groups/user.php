@@ -17,6 +17,6 @@ Route::controller(ContactController::class)->group(function () {
 });
 
 Route::post('/posts/{post}/comments',
-    [CommentController::class, 'store'])->middleware('auth:sanctum')->name('api.comments.store');
+    [CommentController::class, 'store'])->middleware('auth:user')->name('api.comments.store');
 
 Route::post('logout', [LogoutController::class, 'logout'])->middleware('auth:sanctum')->name('api.auth.logout');
