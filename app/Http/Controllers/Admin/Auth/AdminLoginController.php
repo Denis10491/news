@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AdminLoginRequest;
@@ -27,6 +27,6 @@ class AdminLoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->route('admin.home');
+        return redirect()->route('admin.posts.index');
     }
 }
