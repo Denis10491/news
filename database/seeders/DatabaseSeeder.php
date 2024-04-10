@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
@@ -17,6 +18,13 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => 'test'
+        ]);
+
+        Admin::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin',
+            'password' => 'admin'
         ]);
 
         User::factory(5)

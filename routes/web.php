@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -21,6 +22,11 @@ Route::controller(ContactController::class)->group(function () {
 
 Route::post('/posts/{post}/comments',
     [CommentController::class, 'store'])->middleware('auth:sanctum')->name('api.comments.store');
+
+Route::controller(AdminLoginController::class)->group(function () {
+    Route::get('/admin/login', 'index')->name('admin.login');
+    Route::post('/admin/login', 'login')->name('api.admin.auth.login');
+});
 
 Route::middleware('guest')->group(function () {
     Route::controller(RegisterController::class)->group(function () {
