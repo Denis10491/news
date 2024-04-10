@@ -16,7 +16,8 @@ class WelcomeEmail extends Mailable
      * Create a new message instance.
      */
     public function __construct(public User $user)
-    {}
+    {
+    }
 
     /**
      * Get the message content definition.
@@ -24,7 +25,7 @@ class WelcomeEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.welcome',
+            view: 'emails.welcome',
         );
     }
 }

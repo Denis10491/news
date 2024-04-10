@@ -16,7 +16,7 @@ class ForgotPasswordController extends Controller
 {
     public function index(): View
     {
-        return view('forgot');
+        return view('auth.forgot');
     }
 
     public function forgot(ForgotPasswordRequest $request): RedirectResponse

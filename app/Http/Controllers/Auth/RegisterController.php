@@ -14,7 +14,7 @@ class RegisterController extends Controller
 {
     public function index(): RedirectResponse|View
     {
-        return (auth()->user()) ? redirect()->route('home') : view('register');
+        return view('auth.register');
     }
 
     public function signup(SignupRequest $request): RedirectResponse

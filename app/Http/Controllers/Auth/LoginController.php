@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     public function index(): RedirectResponse|View
     {
-        return (auth()->user()) ? redirect()->route('home') : view('login');
+        return view('auth.login');
     }
 
     public function login(LoginRequest $request): RedirectResponse

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Posts;
 
+use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\View\View;
 
@@ -15,6 +16,6 @@ class PostController extends Controller
 
     public function show(Post $post): View
     {
-        return view('post', ['post' => $post]);
+        return view('posts.post', ['post' => $post]);
     }
 }
