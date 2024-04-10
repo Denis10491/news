@@ -30,7 +30,7 @@
             </label>
 
             <div>
-                <a href="{{ route('auth.login.index') }}"
+                <a href="{{ route('login) }}"
                    class="font-medium text-blue-900 hover:bg-blue-300 rounded-md p-2">Вспомнил пароль</a>
             </div>
 

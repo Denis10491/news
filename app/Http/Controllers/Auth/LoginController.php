@@ -25,9 +25,9 @@ class LoginController extends Controller
                 ])
                 ->withInput();
         }
-        
+
         $request->session()->regenerate();
 
-        return redirect()->route('home');
+        return redirect()->route('posts.index');
     }
 }
